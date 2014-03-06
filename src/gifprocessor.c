@@ -44,7 +44,7 @@ char* process_file(char* request) {
             sprintf(output, "%s", download_raw(atok, "gif"));
             // TODO: Add the rest of the image processing logic here
             //       There will be a file "raw.gif" in ../files/raw/
-            remove_raw();
+            // remove_raw();
         } else {
             // TODO: Sent a more useful error message
             sprintf(output, "%s", "Error. Bad Url.");
