@@ -9,6 +9,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+const int MAX_URL_LENGTH = 3000;
+
+char* download_raw(char* file, char* type);
+void remove_raw();
+
 char* process_file(char* request) {
     char* result = (char*) malloc(4096);
     char* output; // The final output from the processed file
@@ -31,17 +36,32 @@ char* process_file(char* request) {
 
         // Parse out the function name and the url argument
         ftok = strtok(args, "=");
-        ftok = strtok(NULL, "=");
-        atok = strtok(NULL, "&");
-        ftok = strtok(ftok, "&");
+        atok = strtok(NULL, "=");
         atok = strtok(atok, " ");
 
         // Call the appropriate function and pass in the url
         if (strcmp(ftok, "gif") == 0) {
-            sprintf(output, "%s", "Connection Established");
+            sprintf(output, "%s", download_raw(atok, "gif"));
+            // TODO: Add the rest of the image processing logic here
+            //       There will be a file "raw.gif" in ../files/raw/
+            remove_raw();
         } else {
-            sprintf(output, "%s", "Faulty Function Name");
+            // TODO: Sent a more useful error message
+            sprintf(output, "%s", "Error. Bad Url.");
         }
     }
     return result;
 }
+
+char* download_raw(char* file, char* type) {
+    // TODO: Possibly validate url / safety check it
+    char* cmd = (char*) malloc(MAX_URL_LENGTH);
+    sprintf(cmd, "wget \"%s\" -O \"../files/raw/raw.%s\" -P \"../files/raw/\"", file, type);
+    system(cmd);
+    return "Downloaded File.";
+}
+
+void remove_raw() {
+    system("rm -f ../files/raw/raw.*");
+}
+

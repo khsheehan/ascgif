@@ -72,7 +72,6 @@ int main(int argc, char *argv[]) {
         }
 
         if ((n = read(newsockfd, buffer, BUFFSIZE)) > 0) {
-            printf("%s", buffer);
             output = process_file(buffer);
             write(newsockfd, output, strlen(output));
             bzero(buffer, BUFFSIZE);
