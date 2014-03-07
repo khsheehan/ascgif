@@ -49,7 +49,7 @@ char* processFile(char* request) {
         // Call the appropriate function and pass in the url
         if (strcmp(ftok, "gif") == 0) {
             // TODO @ Kyle: Uncomment this when everything is built
-                // downloadRaw(atok, "gif");
+                downloadRaw(atok, "gif");
             // TODO @ Toni: build this function
                 processImage();
             // TODO @ Cory: build this function
