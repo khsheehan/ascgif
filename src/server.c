@@ -37,8 +37,6 @@ int main(int argc, char *argv[]) {
     char buffer[BUFFSIZE]; // A buffer to read results to.
     int n;                 // Number of bytes read
 
-    // TODO: This should be spec'd out. There should be a string
-    //       in JSON that can be parsed in the browser
     char* output; // Stores the output to be returned in the browser
 
     clilen = sizeof(cli_addr);
@@ -72,7 +70,7 @@ int main(int argc, char *argv[]) {
         }
 
         if ((n = read(newsockfd, buffer, BUFFSIZE)) > 0) {
-            output = process_file(buffer);
+            output = processFile(buffer);
             write(newsockfd, output, strlen(output));
             bzero(buffer, BUFFSIZE);
             free(output);

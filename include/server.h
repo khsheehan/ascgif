@@ -5,5 +5,5 @@
  *
  */
 
-char* process_file(char* input);
+char* processFile(char* input);
 
