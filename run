@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# This script starts a simple server to display our front end, then
+# builds and runs our c server (in the background) to actually process
+# the images and serve up the content via AJAX
+
+cd ascgif/src/
+make
+./server &
+cd ../site/
+python -m SimpleHTTPServer

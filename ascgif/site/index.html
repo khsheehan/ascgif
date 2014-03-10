@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ascgif</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <script src="js/vendor/modernizr-2.7.1.min.js"></script>
+    </head>
+    <body>
+        <div class='menu-button'></div>
+        <div class='menu-content'>
+            <input class='menu-item port-number' type='text' placeholder='Enter port number (default 5050)'></input>
+        </div>
+        <div class='content-wrapper'>
+            <div class='container'>
+                <h1>ascgif<div class='c-extension'><span>c</span></div></h1>
+                <input class="file-url" type="text" placeholder="Enter the url of a .gif"></input><button class='asciify'>asciify!</button>
+                <div class='loading-message-box'>
+                    <div class='message'>Loading image...</div>
+                </div>
+                <div class='error-message-box'>
+                    <div class='message'>An error occured, please use a valid or adjust your port number.<span class='close-error'>&times;</span></div>
+                </div>
+                <div class='ascgif-section'>
+                    <div class='ascgif-demo'></div>
+                </div>
+            </div>
+        </div>
+        <script src="js/vendor/jquery-1.10.2.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/ascgif.js"></script>
+    </body>
+</html>

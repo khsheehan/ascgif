@@ -1,0 +1,188 @@
+/* Reenable this download when online */
+/*@import url(http://fonts.googleapis.com/css?family=Ubuntu);*/
+
+body {
+    font-family: Ubuntu;
+    color: #444;
+}
+
+h1 {
+    font-size: 5.5em;
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+div.content-wrapper {
+    opacity: 0;
+    text-align: center;
+}
+
+div.container {
+    display: inline-block;
+    text-align: left;
+    margin: auto;
+    width: 800px;
+}
+
+div.ascgif-section {
+    margin-bottom: 40px;
+}
+
+div.c-extension {
+    background: #E87751;
+    color: #fff;
+    text-align: center;
+    height: 1.25em;
+    margin-left: 20px;
+    width: 1.25em;
+    padding: 0.25em;
+    border-radius: 10em;
+    display: inline-block;
+    font-size: 0.4em;
+    position: relative;
+    top: -10px;
+}
+
+div.error-message-box {
+    color: #fff;
+    background: #c45656;
+    border: solid 1px #aa4b4b;
+    font-size: .85em;
+    border-radius: 6px;
+    display: none;
+}
+
+div.error-message-box div.message {
+    padding: 8px;
+}
+
+div.menu-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 40px;
+    min-width: 40px;
+    cursor: pointer;
+    padding-top: 60px;
+    background-image: url(../img/menu.png);
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+}
+
+div.menu-content {
+    position: absolute;
+    top: 22px;
+    left: 80px;
+    display: none;
+}
+
+div.menu-content input.menu-item {
+    display: inline-block;
+    padding: 8px;
+    border: solid 1px #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+div.loading-message-box {
+    color: #2a2a2a;
+    margin-bottom: 20px;
+    background: #fafafa;
+    border: solid 1px #f0f0f0;
+    font-size: .85em;
+    border-radius: 6px;
+    display: none;
+}
+
+div.loading-message-box div.message {
+    padding: 8px;
+}
+
+span.close-error {
+    float: right;
+    font-size: 1.5em;
+    position: relative;
+    top: -0.25em;
+    cursor: pointer;
+}
+
+div.c-extension span {
+    font-weight: 100;
+    position: relative;
+    top: -5px;
+    left: 0px;
+}
+
+table.method-demo-wrapper {
+    font-family: courier;
+}
+
+table.method-demo-wrapper span {
+    display: inline-block;
+    margin: 0 1em;
+}
+
+table.method-demo-wrapper tr td:first-child {
+    padding: 10px 0;
+    width: 600px;
+}
+
+table.method-demo-wrapper tr {
+    border-top: solid 8px #fff;
+    border-bottom: solid 8px #fff;
+    cursor: default;
+}
+
+table.method-demo-wrapper tr:hover {
+    background: #FAF9BE;
+}
+
+div.container input {
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 15px;
+    width: 588px;
+    border: solid 1px #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+input[type=text], button {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+}
+
+input[type=text]:focus, button:focus {
+  box-shadow: 0 0 5px #E87751;
+}
+
+div.container button {
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 15px;
+    width: 170px;
+    border: solid 1px #f0f0f0;
+    background: #fafafa;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+div.ascgif-demo {
+    width: 600px;
+    min-width: 600px;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin: 60px auto 0 auto;
+    text-align: center;
+    font-size: 5px;
+    font-family: courier, monospace;
+}

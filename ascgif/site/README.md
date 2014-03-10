@@ -1,0 +1,4 @@
+ascgif
+==========
+
+gif -> ascii
