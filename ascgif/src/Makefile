@@ -1,11 +1,11 @@
 IDIR =../include
 CC=gcc
-CFLAGS=-I$(IDIR)
+CFLAGS=-I$(IDIR) `pkg-config --cflags opencv`
 
 ODIR=obj
 LDIR =../lib
 
-LIBS=-lm
+LIBS=-lm `pkg-config --libs opencv`
 
 _DEPS = server.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))

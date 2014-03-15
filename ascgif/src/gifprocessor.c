@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "cv.h"
+#include "highgui.h"
 
 const int MAX_URL_LENGTH = 3000;
 const char* JSONP_CALLBACK = "respCallback";
@@ -51,7 +53,6 @@ char* processFile(char* request) {
                 sprintf(result, "%s", "HTTP/1.1 200 OK\nContent-Type: application/javascript\n\n");
                 output = &(result[strlen("HTTP/1.1 200 OK\nContent-Type: application/javascript\n\n")]);
             }
-            // TODO @ Toni: build this function
             processImage();
             // TODO @ Cory: build this function
             ascii = convertToASCII();
@@ -78,28 +79,21 @@ void removeRaw() {
 }
 
 void processImage() {
-    // TODO @ Toni
+    CvCapture* source = cvCaptureFromFile("../files/raw/raw.gif");
+    double numFrames = cvGetCaptureProperty(source, CV_CAP_PROP_FRAME_COUNT);
+    double i;
 
-    // 1. There will be a .gif file in ../files/raw/raw.gif
-    // 2. Take that image and resize it so that the width is 600px (ignore the height)
-    // 3. Then convert the image into grayscale
-    // 4. Split up the .gif into individual frames (this will be the trickiest part)
-    // 5. Save each of those frames in ../files/processed/
-    // 6. Each frame should be in sequence and be saved as frame.1, frame.2, frame.3...
-    //    a. Note that it's possible the way I described doing this above will not work for a .gif
-    //    b. It may be easier to split the image up first, then resize each, conver to grayscale, etc.
+    for (i = 1; i < (numFrames + 1); i++) {
+        IplImage* frame = cvQueryFrame(source);
+        IplImage* dest = cvCreateImage(cvSize(600, (int)frame->height), frame->depth, frame->nChannels);
 
-    // By the time this function has finished executing, there should be a set of files...
-    // 1. All with uniform dimensions (a width of 600px)
-    // 2. All grayscale
-    // 3. All named (in order) as frame.1, frame.2, etc.
-    // 4. Saved into ../files/processed/
+        cvResize(frame, dest, CV_INTER_CUBIC);
 
-    // Final Notes...
-    // 1. It's possible we'll need to get frame-rate metadata from the gif. Don't worry about this for now
-    //    but keep it in mind
-    // 2. For every new gif that is requested, all existing data will be blown away, so don't worry
-    //    about existing and overwrites
+        char* fileName = malloc(strlen("../files/processed/frame") + 4 + strlen(".jpg"));
+        snprintf(fileName, sizeof(fileName), "../files/processed/frame%lf.jpg", i);
+
+        cvSaveImage(fileName, dest, NULL);
+    }
 
 }
 

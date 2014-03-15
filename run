@@ -4,6 +4,7 @@
 # builds and runs our c server (in the background) to actually process
 # the images and serve up the content via AJAX
 
+export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig
 cd ascgif/src/
 make
 ./server &
