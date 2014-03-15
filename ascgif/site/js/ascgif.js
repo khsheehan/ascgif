@@ -1,6 +1,6 @@
 var ASCGIF = ASCGIF || {};
     ASCGIF.frameRate = 2, // Show 3 frames per second
-    ASCGIF.frameSep = '|**$**$**|',
+    ASCGIF.frameSep = 'thisisthedelimiterbro',
     ASCGIF.defaultPort = '5050',
     ASCGIF.port = ASCGIF.defaultPort,
     ASCGIF.params = {},
@@ -8,7 +8,7 @@ var ASCGIF = ASCGIF || {};
     ASCGIF.frames = [],
     ASCGIF.rawData = '',
     ASCGIF.url = '',
-    ASCGIF.defaultUrl = 'http://media2.giphy.com/media/l3rF57pEHAyK4/giphy.gif',
+    ASCGIF.defaultUrl = 'http://media2.giphy.com/media/12gRrmtMlhC9O/giphy.gif',
     ASCGIF.animation;
 
 var respCallback = function(data) {
@@ -28,7 +28,7 @@ var respCallback = function(data) {
             type: 'GET',
             crossDomain: true,
             dataType: 'jsonp',
-            timeout: 3000,
+            // timeout: 3000,
             beforeSend: function() {
                 showLoading();
             },
