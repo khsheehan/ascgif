@@ -76,11 +76,11 @@ int downloadRaw(char* file, char* type) {
 
 void removeFiles() {
     system("rm -f ../files/raw/raw.*");
-    // system("rm -f ../files/processed/*");
+    system("rm -f ../files/processed/*");
 }
 
 void processImage() {
-    char* gif2frames = "convert ../files/raw/raw.gif frame.jpg";
+    char* gif2frames = "convert -negate ../files/raw/raw.gif frame.jpg";
 
     system(gif2frames);
     system("mv ./frame* ../files/processed/");
@@ -110,17 +110,30 @@ char* convertToASCII() {
         return NULL;
     }
 
-    system("cut -d\"\n\" -f1 < ../files/result > ../files/result");
+    char *rv;
+    long rvSize;
+    FILE *input = fopen("../files/result", "rb");
+    fseek(input, 0, SEEK_END);
+    rvSize = ftell(input);
+    rewind(input);
+    rv = malloc(rvSize * (sizeof(char)));
+    fread(rv, sizeof(char), rvSize, input);
+    fclose(input);
 
-    char *file_contents;
-    long input_file_size;
-    FILE *input_file = fopen("../files/result", "rb");
-    fseek(input_file, 0, SEEK_END);
-    input_file_size = ftell(input_file);
-    rewind(input_file);
-    file_contents = malloc(input_file_size * (sizeof(char)));
-    fread(file_contents, sizeof(char), input_file_size, input_file);
-    fclose(input_file);
 
-    return file_contents;
+    char * finalReturn = malloc(sizeof(rv));
+
+    int i;
+    int c = 0;
+
+    for (i = 0; i < strlen(rv); i++) {
+        if (rv[i] != '\n') {
+            finalReturn[c] = rv[i];
+            c++;
+        }
+    }
+
+    system("echo '' > ../files/result");
+
+    return finalReturn;
 }

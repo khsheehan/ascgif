@@ -1,5 +1,5 @@
 var ASCGIF = ASCGIF || {};
-    ASCGIF.frameRate = 2, // Show 3 frames per second
+    ASCGIF.frameRate = 8,
     ASCGIF.frameSep = 'thisisthedelimiterbro',
     ASCGIF.defaultPort = '5050',
     ASCGIF.port = ASCGIF.defaultPort,
@@ -28,7 +28,6 @@ var respCallback = function(data) {
             type: 'GET',
             crossDomain: true,
             dataType: 'jsonp',
-            // timeout: 3000,
             beforeSend: function() {
                 showLoading();
             },
@@ -53,7 +52,8 @@ var respCallback = function(data) {
     };
 
     var parseFrames = function() {
-        ASCGIF.frames = ASCGIF.rawData.split(ASCGIF.frameSep);
+        ASCGIF.frames = ASCGIF.rawData.replace(/ /g, '&nbsp;').split(ASCGIF.frameSep);
+        ASCGIF.frames.pop(); // Cut the last, empty frame
     };
 
     var resetAnimation = function() {
