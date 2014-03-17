@@ -8,7 +8,7 @@ var ASCGIF = ASCGIF || {};
     ASCGIF.frames = [],
     ASCGIF.rawData = '',
     ASCGIF.url = '',
-    ASCGIF.defaultUrl = 'http://media2.giphy.com/media/12gRrmtMlhC9O/giphy.gif',
+    ASCGIF.defaultUrl = 'http://media0.giphy.com/media/11a9K7FLvTD9Kw/giphy.gif',
     ASCGIF.animation;
 
 var respCallback = function(data) {

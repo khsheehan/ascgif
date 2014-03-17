@@ -1,6 +1,6 @@
 IDIR =../include
 CC=gcc
-CFLAGS=-I$(IDIR) `pkg-config --cflags opencv`
+CFLAGS=-I$(IDIR) -I/usr/include/ImageMagick -I/usr/local/bin/ImageMagick-6.8.8/include/ImageMagick-6 -DMAGICKCORE_QUANTUM_DEPTH=16 -DMAGICKCORE_HDRI_ENABLE=0 `pkg-config --cflags opencv`
 
 ODIR=obj
 LDIR =../lib
